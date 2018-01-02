@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="center" id="register_form">
+        <div class="col-sm-3 form-group-lg">
+            {{ form_start(form, {'method': 'POST', 'attr': {'novalidate': 'true'}}) }}
+            <div role="group" aria-labelledby="username__BV_label_" class="b-form-group form-group">
+                {{ form_label(form.username) }}
+                <div>
+                    {{ form_widget(form.username) }}
+                    {{ form_errors(form.username) }}
+                </div>
+            </div>
+            <div role="group" aria-labelledby="password_first__BV_label_" class="b-form-group form-group">
+                {{ form_label(form.plainPassword.first) }}
+                <div>
+                    {{ form_widget(form.plainPassword.first) }}
+                    {{ form_errors(form.plainPassword.first) }}
+                </div>
+            </div>
+            <div role="group" aria-labelledby="password_second__BV_label_" class="b-form-group form-group">
+                {{ form_label(form.plainPassword.second) }}
+                <div>
+                    {{ form_widget(form.plainPassword.second) }}
+                    {{ form_errors(form.plainPassword.second) }}
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register!</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

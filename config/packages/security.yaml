@@ -1,0 +1,35 @@
+security:
+    encoders:
+      App\Entity\User:
+        algorithm: bcrypt
+        cost: 12
+      Symfony\Component\Security\Core\User\User:
+        algorithm: bcrypt
+        cost: 12
+    # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        user_db:
+          entity: {class: App\Entity\User, property: username}
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: ~
+            json_login:
+                check_path: login
+            logout:
+                path: logout
+                target: /
+            provider: user_db
+            pattern: ^/
+            stateless: false
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # https://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # https://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+        - {path: ^/profile, roles: ROLE_USER}

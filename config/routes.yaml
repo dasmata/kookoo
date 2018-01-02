@@ -1,0 +1,5 @@
+index:
+    path: /
+    defaults: { _controller: 'App\Controller\IndexController::index' }
+fos_js_routes:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

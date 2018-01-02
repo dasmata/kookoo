@@ -1,0 +1,6 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+picker:
+    resource: ../../src/Controller/IndexController.php
+    type: annotation

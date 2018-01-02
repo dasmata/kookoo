@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>Pick a present for {{ user.name }}</h1>
+    <div id="picker">
+        <b-form @submit="pickPresent">
+            <b-form-group
+                    id="budget"
+                    :class="errors.budget ? 'has-error has-feedback required' : 'required'"
+                    label="Budget (RON)">
+                <b-form-input
+                        type="text"
+                        v-model="picker.budget"
+                        placeholder="eg. 200"
+                ></b-form-input>
+                <div class="error" v-for="err in errors.budget">${ err }</div>
+            </b-form-group>
+            <b-button type="submit" variant="primary">Pick present</b-button>
+        </b-form>
+        <div v-if="loading">Loading...</div>
+        <div id="present" v-else-if="present !== null">
+            <b-card-group deck>
+                <b-card
+                        :no-body="true"
+                        :header="present.name"
+                        header-tag="header"
+                        header-bg-variant="light"
+                        header-border-variant="default"
+
+                        style="width:17rem; flex:0 1 auto; margin-bottom:15px;"
+                        :key="present.id"
+                        footer-bg-variant="light"
+                        footer-border-variant="default"
+                >
+                    <div class="card-text product-card">
+                        <div>
+                            <a :href="present.url" class="card-link">${ present.url }</a>
+                        </div>
+                        <div>
+                            Price: ${ present.price } ron
+                        </div>
+                    </div>
+                    <div slot="footer" v-if="!present.reserved && !reserving">
+                        <b-form-group
+                                id="name"
+                                v-show="reserve"
+                                :class="errors.name ? 'has-error has-feedback required' : 'required'"
+                                label="Your name">
+                            <b-form-input
+                                    type="text"
+                                    v-model="name"
+                                    placeholder="John Doe"
+                            ></b-form-input>
+                            <div class="error" v-for="err in errors.name">${ err }</div>
+                        </b-form-group>
+                        <b-button variant="primary" @click="()=>{reservePresent(present)}">${ reseveText }</b-button>
+                        <b-button v-if="picker.products.length" @click="nextPresent">Change present</b-button>
+                    </div>
+                    <div slot="footer" v-else-if="!present.reserved && reserving">
+                        Saving...
+                    </div>
+                    <div slot="footer" v-else-if="present.reserved && !reserving">
+                        Thank you!
+                    </div>
+                </b-card>
+            </b-card-group>
+        </div>
+        <div v-else-if="submited">Nu present found. Please change the budget and try again</div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        let picker = {
+            user: {{ user.setUsername('') | json_encode() | raw }}
+        }
+    </script>
+    <script src="{{ asset('picker.js', 'js') }}"></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <b-container fluid>
+        <b-row>
+            <b-col><profile></profile></b-col>
+        </b-row>
+        <b-row>
+            <b-col><lists></lists></b-col>
+        </b-row>
+    </b-container>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('profile.js', 'js') }}"></script>
+{% endblock %}
