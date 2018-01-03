@@ -1,4 +1,3 @@
-require('bootstrap-vue/dist/bootstrap-vue.css');
 import Menu from './Components/Generic/Menu';
 import Vue from 'vue';
 import KookooVue from './KooKooVue';
