@@ -1,7 +1,7 @@
 # Kookoo.ro #
 Kookoo.ro is a whislist site made with symfony 4 and Vue.js
 ## Prerequisites ##
-* php 7.1+
+* php 7.1.3+
 * node 8.9.3+
 * yarn 1.3.2+
 * composer 1.5.5+
