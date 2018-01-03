@@ -35,7 +35,7 @@ class PresentPicker {
     }
 
     private function getMaxBudget($budget){
-        $threshold = 500;
+        $threshold = 300;
         $multiplier = 1 + ($threshold / $budget / 10);
         return $budget * $multiplier;
     }

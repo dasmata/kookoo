@@ -200,7 +200,7 @@ class User implements UserInterface, \Serializable, \JsonSerializable {
     public function jsonSerialize() {
         return [
             "id" => $this->getId(),
-            "name"=> $this->getName(),
+            "name"=> explode("@",$this->getName())[0],
             "url" => $this->getUrl(),
             "username" => $this->getUsername()
         ];

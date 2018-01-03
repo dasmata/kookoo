@@ -86,11 +86,9 @@ class ProductsController extends Controller {
             return new JsonResponse($product, 404);
         }
         $form = $this->createForm(ProductType::class, $product);
-        $list = $em->getRepository(ProductsList::class)->find($data['list']);
         $form->submit($data);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $product->setList($list);
             $em->persist($product);
             $em->flush();
             return new JsonResponse($product, 200);

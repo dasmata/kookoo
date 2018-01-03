@@ -24,7 +24,7 @@ class User extends Abstract {
 
     validation() {
         return {
-            email: [validators.required],
+            email: [validators.uniqueEmail.or(validators.required)],
             password: [validators.required]
         };
     }

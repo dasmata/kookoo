@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    <h1>Pick a present for {{ user.name }}</h1>
+    <h1>Pick a present for {{ requestedUser.name }}</h1>
     <div id="picker">
         <b-form @submit="pickPresent">
             <b-form-group
@@ -70,7 +70,7 @@
 {% block javascripts %}
     <script>
         let picker = {
-            user: {{ user.setUsername('') | json_encode() | raw }}
+            user: {{ requestedUser | json_encode() | raw }}
         }
     </script>
     <script src="{{ asset('picker.js', 'js') }}"></script>

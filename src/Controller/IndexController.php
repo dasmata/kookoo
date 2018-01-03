@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,7 +26,8 @@ class IndexController extends Controller {
         // last username entered by the user
         $lastUsername = $authUtils->getLastUsername();
 
-        $user = $this->get("security.token_storage")->getToken()->getUser();
+        $token = $this->get("security.token_storage")->getToken();
+        $user = $token ? $token->getUser() : null;
         if ($user && $user !== 'anon.') {
             return new RedirectResponse($this->generateUrl("profile"));
         }
@@ -83,6 +85,7 @@ class IndexController extends Controller {
      * @Route(
      *     path="/{urlPath}",
      *     name="picker",
+     *     requirements={"urlPath": "^(?!admin|login|logout|js|_wdt).+"},
      *     options={
      *      "expose":true
      *     }
@@ -97,7 +100,7 @@ class IndexController extends Controller {
             throw new NotFoundHttpException();
         }
         return $this->render("home/picker.html.twig", [
-            "user" => $user[0]
+            "requestedUser" => $user[0]
         ]);
     }
 }

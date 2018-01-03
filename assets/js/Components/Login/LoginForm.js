@@ -18,10 +18,10 @@ LoginForm.methods = {
         authService.login(this.$data.model)
             .catch((e) => {
                 if (typeof e === "object" && e instanceof ValidationError) {
-                    return this.showErrors(e.getErrors());
+                    return this.showErrors(e.errors);
                 }
             }).then(()=>{
-                window.location = router.resolve({name: "profile"}).href;
+//                window.location = router.resolve({name: "profile"}).href;
             })
     },
     showErrors(errors){
