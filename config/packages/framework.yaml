@@ -18,10 +18,10 @@ framework:
         packages:
             js:
                 base_urls:
-                    - 'http://kookoo.local:8080/build/js/'
+                    - '%env(JS_URL)%'
             css:
                 base_urls:
-                    - 'http://kookoo.local:8080/build/css'
+                    - '%env(CSS_URL)%'
     session:
         handler_id:  session.handler.native_file
         save_path:   "/tmp"
