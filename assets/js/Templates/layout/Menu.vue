@@ -4,9 +4,10 @@
 
             <b-navbar-brand href="/">KooKoo.ro</b-navbar-brand>
 
-            <template v-if="identity">
+            <b-navbar-nav class="ml-auto">
 
-                <b-navbar-nav class="ml-auto">
+                <template v-if="identity">
+
                     <b-nav-item-dropdown right no-caret class="nav-item-avatar">
                         <template slot="button-content">
                             <!-- To do: make src relevant -->
@@ -17,9 +18,19 @@
                         <b-dropdown-item href="/profile">Profile</b-dropdown-item>
                         <b-dropdown-item href="/logout">Signout</b-dropdown-item>
                     </b-nav-item-dropdown>
-                </b-navbar-nav>
 
-            </template>
+                </template>
+
+                <template v-else>
+
+                    <b-nav-item href="/" class="nav-item-avatar">
+                        <!-- To do: change with a relevant icon -->
+                        <img src="https://placekitten.com/g/40/40" alt="no user" class="rounded-circle">
+                    </b-nav-item>
+
+                </template>
+
+            </b-navbar-nav>
 
         </b-container>
     </b-navbar>
