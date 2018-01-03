@@ -9,7 +9,7 @@ import ValidationError from '../../Errors/ValidationError';
 LoginForm.data = function () {
     return {
         model: new models.User()
-    }
+    };
 };
 
 LoginForm.methods = {
@@ -22,7 +22,7 @@ LoginForm.methods = {
                 }
             }).then(()=>{
                 window.location = router.resolve({name: "profile"}).href;
-            })
+            });
     },
     showErrors(errors){
         console.log(errors);

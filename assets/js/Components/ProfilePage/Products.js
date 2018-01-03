@@ -18,7 +18,7 @@ ProductsPartial.data = function () {
         reserver: '',
         reserving: null,
         reservationErrors: {}
-    }
+    };
 };
 
 ProductsPartial.props = ['list'];
@@ -41,7 +41,7 @@ ProductsPartial.methods = {
         return new Product({
             preference: 5,
             list: this.$props.list ? this.$props.list.id : null
-        })
+        });
     },
     updateProducts(list){
         list.fetchProducts().then((collection) => {

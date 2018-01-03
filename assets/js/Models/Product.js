@@ -7,9 +7,9 @@ class Product extends Abstract {
     mutations() {
         return {
             reserved: (r) => {
-                return +r
+                return + r;
             }
-        }
+        };
     }
 
     defaults() {
@@ -21,7 +21,7 @@ class Product extends Abstract {
             reserved: 0,
             preference: "",
             reserver: ""
-        }
+        };
     }
 
     routes() {
@@ -29,7 +29,7 @@ class Product extends Abstract {
             save: decodeURIComponent(router.resolve({name: "create-product"}).href),
             delete: decodeURIComponent(router.resolve({name: "product-details", params:{id: '{id}'}}).href),
             fetch: decodeURIComponent(router.resolve({name: "product-details", params:{id: '{id}'}}).href)
-        }
+        };
     }
 
     validation() {

@@ -30,7 +30,7 @@ Profile.watch = {
                     }).catch(() => {
                         this.$data.checkingUrl = false;
                     });
-                })
+                });
             }, 1000);
         }
     }

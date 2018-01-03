@@ -7,17 +7,17 @@ class Picker  extends Abstract{
             products: null,
             budget: "",
             user: picker.user.id
-        }
+        };
     }
 
     validation(){
         return {
             budget: [validators.required, validators.numeric, validators.gt(0)]
-        }
+        };
     }
 
     fetchPresent(){
-        return this.products.pickPresent(this.get("budget"), this.get("user"))
+        return this.products.pickPresent(this.get("budget"), this.get("user"));
     }
 }
 export default Picker;

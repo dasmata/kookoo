@@ -6,7 +6,7 @@ const uniqueEmail = function (value, attribute, object) {
         setTimeout(() => {
             done(message);
         }, 500);
-    })
+    });
 };
 
 uniqueEmail.and = function(rule){
@@ -22,7 +22,7 @@ uniqueEmail.and = function(rule){
                 }
             }, true));
         });
-    }
+    };
 };
 uniqueEmail.or = function(rule){
     return function(value, attribute, object){
@@ -35,6 +35,6 @@ uniqueEmail.or = function(rule){
                 }
             }, null));
         });
-    }
+    };
 };
 export default uniqueEmail;

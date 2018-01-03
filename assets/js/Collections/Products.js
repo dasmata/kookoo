@@ -7,21 +7,21 @@ class Products extends Collection {
     options() {
         return {
             'model': Product
-        }
+        };
     }
 
     routes() {
         return {
             fetch: router.resolve({name: "get-lists-products"}).href,
             pickPresent: decodeURIComponent(router.resolve({name: "pick-present"}).href)
-        }
+        };
     }
 
     getFetchQuery() {
         let list = this.getList();
         let query = super.getFetchQuery();
         if (list) {
-            return Object.assign({}, query, {list: this.getList().id})
+            return Object.assign({}, query, {list: this.getList().id});
         }
         return query;
     }

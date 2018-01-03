@@ -8,14 +8,14 @@ class Reservation extends Abstract{
         return {
             name: "",
             product: ""
-        }
+        };
     }
 
     routes() {
         return {
             save: decodeURIComponent(router.resolve({name: "create-reservation"}).href),
             delete: decodeURIComponent(router.resolve({name: "delete-reservation", params:{id: '{product}'}}).href)
-        }
+        };
     }
 
     validation() {

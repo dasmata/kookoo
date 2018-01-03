@@ -11,7 +11,7 @@ class List extends Abstract {
             name: "",
             activeFrom: new Date(),
             activeUntil: null
-        }
+        };
     }
 
     routes() {
@@ -19,7 +19,7 @@ class List extends Abstract {
             save: decodeURIComponent(router.resolve({name: "create-list"}).href),
             delete: decodeURIComponent(router.resolve({name: "list-details", params:{id: "{id}"}}).href),
             fetch: decodeURIComponent(router.resolve({name: "list-details", params:{id: "{id}"}}).href),
-        }
+        };
     }
 
     fetchProducts() {

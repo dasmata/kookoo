@@ -8,7 +8,7 @@ Lists.components = {ListsPartial, ProductsPartial};
 Lists.data = function () {
     return {
         selectedList: null
-    }
+    };
 };
 Lists.methods = {
     selectList(list){

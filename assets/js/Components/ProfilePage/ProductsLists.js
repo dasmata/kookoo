@@ -20,7 +20,7 @@ ListsPartial.data = function () {
         selected: null,
         deleting: null,
         saving: false
-    }
+    };
 };
 ListsPartial.created = function () {
     lists.fetch().then(() => {
@@ -77,7 +77,7 @@ ListsPartial.methods = {
                     this.selectList(lists.first());
                 }
             });
-        }).catch((e) => {
+        }).catch(() => {
             this.$data.deleting = null;
         });
     },
