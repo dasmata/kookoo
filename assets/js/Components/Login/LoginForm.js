@@ -21,7 +21,7 @@ LoginForm.methods = {
                     return this.showErrors(e.errors);
                 }
             }).then(()=>{
-//                window.location = router.resolve({name: "profile"}).href;
+                window.location = router.resolve({name: "profile"}).href;
             })
     },
     showErrors(errors){
