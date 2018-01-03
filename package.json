@@ -20,5 +20,25 @@
     "vue-mc": "^0.2.3",
     "vue-router": "^3.0.1",
     "vuejs-datepicker": "^0.9.22"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "ecmaFeatures": {
+      "modules": true,
+      "spread": true,
+      "restParams": true
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-unused-vars": 2,
+      "no-undef": 2
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    }
   }
 }
