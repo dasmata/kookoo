@@ -1,11 +1,15 @@
 {
-  "devDependencies": {
-    "@symfony/webpack-encore": "^0.17.1",
-    "css-loader": "^0.28.7",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "vue-loader": "^13.6.2",
-    "vue-template-compiler": "^2.5.13"
+  "name": "kookoo.ro",
+  "description": "Kookoo.ro is a whislist site made with symfony and Vue.js",
+  "version": "0.1.0",
+  "author": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasmata/kookoo.ro.git"
   },
   "dependencies": {
     "bootstrap": "4.0.0-beta.3",
@@ -16,6 +20,25 @@
     "vue-router": "^3.0.1",
     "vuejs-datepicker": "^0.9.22"
   },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.17.1",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "vue-loader": "^13.6.2",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "keywords": [
+    "symfony",
+    "vue",
+    "bootstrap",
+    "wishlist"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dasmata/kookoo.ro/issues"
+  },
+  "homepage": "https://github.com/dasmata/kookoo.ro#readme",
   "eslintConfig": {
     "parser": "babel-eslint",
     "ecmaFeatures": {
