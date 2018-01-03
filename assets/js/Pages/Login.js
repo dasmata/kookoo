@@ -5,6 +5,6 @@ import KooKooVue from "../KooKooVue";
 Vue.use(KooKooVue);
 
 let vm = new Vue({
-    el: "content",
+    el: "main",
     components: { LoginForm }
 });

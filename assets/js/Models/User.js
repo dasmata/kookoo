@@ -5,11 +5,11 @@ import {router} from  '../routes';
 class User extends Abstract {
     defaults() {
         return {
-            email: "",
+            username: "",
             password: "",
             name: "",
             url: ""
-        }
+        };
     }
 
     routes() {
@@ -19,12 +19,12 @@ class User extends Abstract {
             update: router.resolve({"name": "update-profile"}).href,
             save: router.resolve({"name": "update-profile"}).href,
             fetch: router.resolve({"name": "get-profile"}).href
-        }
+        };
     }
 
     validation() {
         return {
-            email: [validators.required],
+            username: [validators.required],
             password: [validators.required]
         };
     }
@@ -34,7 +34,7 @@ class User extends Abstract {
             url: this.getURL(this.routes().login),
             method: "POST",
             data: {
-                "username": this.get("email"),
+                "username": this.get("username"),
                 "password": this.get("password")
             },
             headers: {
@@ -44,7 +44,7 @@ class User extends Abstract {
         return this.getRequest(config).send().then((data) => {
             console.log(data);
         }).catch((error) => {
-            // Handle failure here
+            throw new Error(error);
         });
     }
 
@@ -64,7 +64,7 @@ class User extends Abstract {
                 return data.response.data;
             }
         }).catch((error) => {
-            throw new Error();
+            throw new Error(error);
         });
     }
 }

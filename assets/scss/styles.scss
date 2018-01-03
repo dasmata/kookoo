@@ -1,5 +1,15 @@
 /* structure
 /**********************************************************************/
+html, body { height: 100%; }
+body {
+  display: flex; flex-direction: column;
+  > * { flex: 0; }
+  > main { flex: 1 1 100%; }
+  > header {
+    box-shadow: $popover-box-shadow;
+  }
+  > footer { background-color: $light; padding-top: $spacer; padding-bottom: $spacer; color: map-get($colors, 'gray'); text-align: center; }
+}
 
 /* typo, general tags (buttons, icons, etc) and styles
 /**********************************************************************/
@@ -10,6 +20,12 @@ svg { fill: currentColor; }
 
 /* forms
 /**********************************************************************/
+.form-login {
+  min-width: 290px; max-width: 350px;
+
+  // to do: eliminate ul
+  ul { @extend .list-unstyled; color: red; }
+}
 
 /* alerts, carousels, containers
 /**********************************************************************/
@@ -30,27 +46,6 @@ svg { fill: currentColor; }
 
 
 // to do: check&clean this css
-.center {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 10px 0;
-  align-items: center;
-  justify-content: space-around;
-  display: flex;
-  float: none;
-}
-
-#register_form {
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    color: red;
-  }
-}
-
 #picker{
   visibility: hidden;
 }

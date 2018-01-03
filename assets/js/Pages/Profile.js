@@ -6,7 +6,7 @@ import Lists from '../Components/ProfilePage/Lists';
 Vue.use(KooKooVue);
 
 let vm = new Vue({
-    el: "content",
+    el: "main",
     delimiters: ['${', '}'],
     components: { Profile, Lists }
 });

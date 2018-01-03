@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link href="{{ asset('styles.css', 'css') }}" type="text/css" rel="stylesheet"/>
     {% block stylesheets %}{% endblock %}
@@ -10,12 +11,12 @@
 <header>
     <top-menu identity="false"></top-menu>
 </header>
-<content>
+<main>
     {% block body %}{% endblock %}
-</content>
-<footer>
-
-</footer>
+</main>
+<footer><div class="container-fluid">
+    Copyright 2018
+</div></footer>
 <script>
     let app = {user: {{ app.user | json_encode | raw }} }
 </script>
