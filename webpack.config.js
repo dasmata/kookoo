@@ -16,7 +16,7 @@ Encore
     .addEntry('js/profile', './assets/js/Pages/Profile.js')
     .addEntry('js/picker', './assets/js/Pages/Picker.js')
 
-    .addStyleEntry('css/main', './assets/scss/main.scss')
+    .addStyleEntry('css/styles', './assets/scss/compile.scss')
 
     // uncomment if you use Sass/SCSS files
     .enableSassLoader()
