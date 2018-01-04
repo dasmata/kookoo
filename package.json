@@ -5,7 +5,8 @@
   "author": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently --kill-others \"php bin/console server:run *:4000\" \"yarn run encore dev-server --watch --host 0.0.0.0 --public 0.0.0.0:8080\"",
+    "build": "yarn encore production"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.1",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.7",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
